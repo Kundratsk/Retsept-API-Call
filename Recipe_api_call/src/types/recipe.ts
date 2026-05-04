@@ -2,6 +2,7 @@ export interface Recipe {
     id: number;
     title: string;
     image: string;
+    mealType?: "breakfast" | "lunch" | "dinner" | "snack";
     readyInMinutes: number;
     instructions?: string; // Valmistamisjuhend tekstina
     analyzedInstructions?: {

@@ -74,7 +74,7 @@ const RecipeCard = ({ recipe, onAddToMealPlan }: Props) => {
               style={{padding: "2px", width: "155px", margin: "20px"}}
             >
               
-              Lisa MealPlannerisse
+              Lisa toidukorra planeerijasse
             </Button>
             <select
               value={mealType}
