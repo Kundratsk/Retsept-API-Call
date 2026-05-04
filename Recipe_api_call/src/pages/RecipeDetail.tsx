@@ -24,6 +24,9 @@ const RecipeDetail = () => {
   return (
     <div style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
       <h1>{recipe.title}</h1>
+      <p style={{ marginTop: "5px", fontSize: "18px" }}>
+      <strong>Servings:</strong> {recipe.servings}
+      </p>
       <img src={recipe.image} alt={recipe.title} style={{ width: "100%", maxWidth: "500px", borderRadius: "8px" }} />
 
       {/* --- MAKROD --- */}

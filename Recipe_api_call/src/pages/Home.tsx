@@ -45,35 +45,71 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <h1>Recipe Search</h1>
+  <div style={{ background: "#f5f7fb", minHeight: "100vh", padding: "40px 20px" }}>
 
-      <TextField
-        label="Search"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        // Et saaks ka Enter-klahviga otsida:
-        onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
-      />
+    {/* HEADER */}
+    <div style={{ textAlign: "center", marginBottom: "30px" }}>
+      <h1 style={{ fontSize: "2.5rem", marginBottom: "8px" }}>
+        🍽️ Recipe Search
+      </h1>
+      <p style={{ color: "#666" }}>
+        Find delicious recipes instantly
+      </p>
+    </div>
 
-      <Button onClick={handleSearch} variant="contained" sx={{ ml: 1 }}>
-        Search
-      </Button>
+    {/* SEARCH CARD */}
+    <div style={{
+      maxWidth: "600px",
+      margin: "0 auto",
+      background: "white",
+      padding: "20px",
+      borderRadius: "12px",
+      boxShadow: "0 4px 20px rgba(0,0,0,0.08)"
+    }}>
+      <div style={{ display: "flex", gap: "10px" }}>
 
-      {loading && <p>Loading...</p>}
+        <TextField
+          fullWidth
+          label="Search recipes..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+        />
 
-      {/* 4. Ilusam vaade: paneme retseptid ritta (Grid) */}
-      <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', 
-        gap: '20px', 
-        marginTop: '20px' 
-      }}>
-        {recipes.map((r) => (
-          <RecipeCard key={r.id} recipe={r} />
-        ))}
+        <Button
+          variant="contained"
+          onClick={handleSearch}
+          sx={{ px: 3 }}
+        >
+          Search
+        </Button>
+
       </div>
     </div>
+
+    {/* LOADING */}
+    {loading && (
+      <p style={{ textAlign: "center", marginTop: "20px" }}>
+        Loading...
+      </p>
+    )}
+
+    {/* RESULTS */}
+    <div style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+      gap: "20px",
+      marginTop: "40px",
+      maxWidth: "1100px",
+      marginLeft: "auto",
+      marginRight: "auto"
+    }}>
+      {recipes.map((r) => (
+        <RecipeCard key={r.id} recipe={r} />
+      ))}
+    </div>
+
+  </div>
   );
 };
 
