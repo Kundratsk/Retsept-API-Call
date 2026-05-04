@@ -3,6 +3,8 @@ import Home from "./pages/Home";
 import RecipeDetail from "./pages/RecipeDetail";
 import Favorites from "./pages/Favorites";
 import "..//node_modules/bootstrap/dist/css/bootstrap.min.css";
+import MealPlanner from "./pages/MealPlanner";
+
 
 function App() {
   return (
@@ -16,6 +18,10 @@ function App() {
           <Link className="nav-link btn btn-outline-secondary" to="/favorites">
             Favorites
           </Link>
+
+          <Link className="nav-link btn btn-outline-success" to="/mealplanner">
+            Meal Planner
+          </Link>
         </div>
       </nav>
 
@@ -23,6 +29,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/recipe/:id" element={<RecipeDetail />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/mealplanner" element={<MealPlanner />} />
       </Routes>
     </BrowserRouter>
   );

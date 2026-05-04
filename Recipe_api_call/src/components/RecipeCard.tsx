@@ -6,10 +6,12 @@ import { addFavorite, removeFavorite, isFavorite } from "../utils/favorites";
 
 interface Props {
   recipe: Recipe;
+  onAddToMealPlan?: (recipe: Recipe & { mealType: string }) => void;
 }
 
-const RecipeCard = ({ recipe }: Props) => {
+const RecipeCard = ({ recipe, onAddToMealPlan }: Props) => {
   const [fav, setFav] = useState(false);
+  const [mealType, setMealType] = useState<"breakfast" | "lunch" | "dinner" | "snack">("lunch");
 
   useEffect(() => {
     setFav(isFavorite(recipe.id));
@@ -41,8 +43,8 @@ const RecipeCard = ({ recipe }: Props) => {
       <CardContent>
         <Typography variant="h6">{recipe.title}</Typography>
 
-        <Button component={Link} to={`/recipe/${recipe.id}`}>
-          Vaata detaili
+        <Button component={Link} to={`/recipe/${recipe.id}`} variant="outlined" sx={{ ml: 2 }}>
+          Vaata detaile
         </Button>
 
         <Button
@@ -51,8 +53,42 @@ const RecipeCard = ({ recipe }: Props) => {
           onClick={toggleFavorite}
           sx={{ ml: 2 }}
         >
-          {fav ? "💔 Eemalda" : "❤️ Lisa lemmikuks"}
+          {fav ? " Eemalda lemmik" : " Lisa lemmikuks"}
         </Button>
+
+        {/* 🔽 DROPDOWN (ÕIGE KOHT) */}
+        {onAddToMealPlan && (
+          <>
+            
+
+            <Button
+              variant="contained"
+              color="success"
+              onClick={() =>
+                onAddToMealPlan({
+                  ...recipe,
+                  mealType,
+                })
+              }
+              sx={{ ml: 2 }}
+              style={{padding: "2px", width: "155px", margin: "20px"}}
+            >
+              
+              Lisa MealPlannerisse
+            </Button>
+            <select
+              value={mealType}
+              onChange={(e) => setMealType(e.target.value as any)}
+              style={{ marginLeft: 20, padding: "2px", borderRadius: "4px", borderColor: "#ccc" }}
+            >
+              <option value="breakfast">Hommikusöök</option>
+              <option value="lunch">Lõuna</option>
+              <option value="dinner">Õhtu</option>
+              <option value="snack">Snäkid</option>
+              
+            </select>
+          </>
+        )}
       </CardContent>
     </Card>
   );

@@ -23,6 +23,14 @@ const Home = () => {
       setQuery(savedQuery);
     }
   }, []);
+  
+  const addToMealPlan = (recipe: Recipe & { mealType: string }) => {
+  const existing = JSON.parse(localStorage.getItem("mealPlan") || "[]");
+
+  const updated = [...existing, recipe];
+
+  localStorage.setItem("mealPlan", JSON.stringify(updated));
+};
 
   const handleSearch = async () => {
     if (!query) return; // Ära tee tühja päringut
@@ -42,6 +50,8 @@ const Home = () => {
     } finally {
       setLoading(false);
     }
+
+  
   };
 
   return (
@@ -105,7 +115,11 @@ const Home = () => {
       marginRight: "auto"
     }}>
       {recipes.map((r) => (
-        <RecipeCard key={r.id} recipe={r} />
+        <RecipeCard
+          key={r.id}
+          recipe={r}
+          onAddToMealPlan={addToMealPlan}
+        />
       ))}
     </div>
 
