@@ -11,6 +11,11 @@ See on Reacti rakendus, kus saab:
 # Kõigepealt tee .env kaust recipe_api_call kausta sisse
 sinna .env kausta pange "Saadan meilile"
 
+### Otsige arvutist Recipe_api_call path
+
+ja pange terminali cmd prompti näiteks minu puhul cd C:\Users\kundr\Documents\GitHub\Retsept-API-Call\Recipe_api_call
+
+
 ###  Installi dependencyd ja käivita projekt
 npm install
 npm install bootstrap
