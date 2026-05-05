@@ -58,7 +58,6 @@ const Home = () => {
 
       const data = await searchRecipes(query);
 
-      console.log("API DATA:", data);
 
       setRecipes(data);
 
@@ -77,7 +76,7 @@ const Home = () => {
 
       {/* HEADER */}
       <div style={{ textAlign: "center", marginBottom: "30px" }}>
-        <h1 style={{ fontSize: "2.5rem", marginBottom: "8px" }}>
+        <h1 style={{ fontSize: "2.5rem", marginBottom: "80px" }}>
           🍽️ Recipe Search
         </h1>
         <p style={{ color: "#666" }}>
@@ -127,7 +126,7 @@ const Home = () => {
         gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
         gap: "20px",
         marginTop: "40px",
-        maxWidth: "1100px",
+        maxWidth: "1800px",
         marginLeft: "auto",
         marginRight: "auto"
       }}>

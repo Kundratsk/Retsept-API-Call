@@ -43,7 +43,7 @@ const RecipeCard = ({ recipe, onAddToMealPlan }: Props) => {
       <CardContent>
         <Typography variant="h6">{recipe.title}</Typography>
 
-        <Button component={Link} to={`/recipe/${recipe.id}`} variant="outlined" sx={{ ml: 2 }}>
+        <Button component={Link} to={`/recipe/${recipe.id}`} variant="outlined" sx={{ ml: 2, width: "155px", marginBottom: "5px" } }>
           Vaata detaile
         </Button>
 
@@ -71,7 +71,7 @@ const RecipeCard = ({ recipe, onAddToMealPlan }: Props) => {
                 })
               }
               sx={{ ml: 2 }}
-              style={{padding: "2px", width: "155px", margin: "20px"}}
+              style={{padding: "2px", width: "155px", margin: "5px"}}
             >
               
               Lisa toidukorra planeerijasse
@@ -79,7 +79,7 @@ const RecipeCard = ({ recipe, onAddToMealPlan }: Props) => {
             <select
               value={mealType}
               onChange={(e) => setMealType(e.target.value as any)}
-              style={{ marginLeft: 20, padding: "2px", borderRadius: "4px", borderColor: "#ccc" }}
+              style={{ marginLeft: 20, padding: "2px", borderRadius: "4px", borderColor: "#ccc"}}
             >
               <option value="breakfast">Hommikusöök</option>
               <option value="lunch">Lõuna</option>

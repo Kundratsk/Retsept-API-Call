@@ -144,46 +144,6 @@ export default function MealPlanner() {
       {renderMeal("🍝 Õhtu", dinner)}
       {renderMeal("🍎 Snäkid", snacks)}
 
-      {/* SUMMARY */}
-      <div className="card mt-4 shadow">
-        <div className="card-body">
-          <h5 className="mb-3">📊 Kokkuvõte</h5>
-
-          <p>🔥 Calories: {Math.round(calories)} / 3000 kcal</p>
-          <div className="progress mb-3">
-            <div
-              className="progress-bar bg-danger"
-              style={{ width: `${getProgress(calories, 3000)}%` }}
-            />
-          </div>
-
-          <p>💪 Protein: {Math.round(protein)}g / 200g</p>
-          <div className="progress mb-3">
-            <div
-              className="progress-bar bg-success"
-              style={{ width: `${getProgress(protein, 200)}%` }}
-            />
-          </div>
-
-          <p>🥑 Fat: {Math.round(fat)}g / 90g</p>
-          <div className="progress mb-3">
-            <div
-              className="progress-bar bg-warning"
-              style={{ width: `${getProgress(fat, 90)}%` }}
-            />
-          </div>
-
-          <p>🍞 Carbs: {Math.round(carbs)}g / 320g</p>
-          <div className="progress">
-            <div
-              className="progress-bar bg-info"
-              style={{ width: `${getProgress(carbs, 320)}%` }}
-            />
-          </div>
-        </div>
-      </div>
-
     </div>
   );
-  console.log("API DATA:", data);
 }
