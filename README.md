@@ -9,7 +9,7 @@ See on Reacti rakendus, kus saab:
 ---
 
 # Kõigepealt tee .env kaust recipe_api_call kausta sisse
-sinna .env kausta pane "VITE_API_KEY=c23dbcf547de4539ae59d4aa81a03a68"
+sinna .env kausta pane "Saadan meilile"
 
 ###  Installi dependencyd ja käivita projekt
 npm install
